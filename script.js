@@ -3,7 +3,7 @@
 
 $calc_ordi = 0;
 
-$table = [2,2,"",2,2,2,"",2,2,2,"",2,2,2,"",2];
+$table = [2,"","",4,"","",2,2,"","",2,"","","","",4];
 
 console.log($table);
 
@@ -1401,7 +1401,7 @@ function MoveTop() {
 
     // fusion de 2 blocs
 
-    for (let $i = 0; $i < 12; $i+4) {
+    for (let $i = 0; $i < 12; $i+=4) {
 
         if ($table[0] !== "") {
             if ($table[0] === $table[12] && $table[4] === "" && $table[8] === "") {
@@ -1545,7 +1545,7 @@ function MoveTop() {
 
     // fusion de 2 blocs
 
-    for (let $i = 1; $i < 13; $i+4) {
+    for (let $i = 1; $i < 13; $i+=4) {
 
         if ($table[1] !== "") {
             if ($table[1] === $table[13] && $table[5] === "" && $table[9] === "") {
@@ -1689,7 +1689,7 @@ function MoveTop() {
 
     // fusion de 2 blocs
 
-    for (let $i = 2; $i < 14; $i+4) {
+    for (let $i = 2; $i < 14; $i+=4) {
 
         if ($table[2] !== "") {
             if ($table[2] === $table[14] && $table[6] === "" && $table[10] === "") {
@@ -1833,7 +1833,7 @@ function MoveTop() {
 
 // fusion de 2 blocs
 
-    for (let $i = 3; $i < 15; $i+4) {
+    for (let $i = 3; $i < 15; $i+=4) {
 
         if ($table[3] !== "") {
             if ($table[3] === $table[15] && $table[7] === "" && $table[11] === "") {
@@ -1998,7 +1998,7 @@ function MoveBottom() {
 
     // fusion de 2 blocs
 
-    for (let $i = 12; $i > 0; $i-4) {
+    for (let $i = 12; $i > 0; $i-=4) {
 
         if ($table[12] !== "") {
             if ($table[12] === $table[0] && $table[8] === "" && $table[4] === "") {
@@ -2142,7 +2142,7 @@ function MoveBottom() {
 
     // fusion de 2 blocs
 
-    for (let $i = 13; $i > 1; $i-4) {
+    for (let $i = 13; $i > 1; $i-=4) {
 
         if ($table[13] !== "") {
             if ($table[13] === $table[1] && $table[9] === "" && $table[5] === "") {
@@ -2286,7 +2286,7 @@ function MoveBottom() {
 
     // fusion de 2 blocs
 
-    for (let $i = 14; $i > 2; $i-4) {
+    for (let $i = 14; $i > 2; $i-=4) {
 
         if ($table[14] !== "") {
             if ($table[14] === $table[2] && $table[10] === "" && $table[6] === "") {
@@ -2430,7 +2430,7 @@ function MoveBottom() {
 
 // fusion de 2 blocs
 
-    for (let $i = 15; $i > 3; $i-4) {
+    for (let $i = 15; $i > 3; $i-=4) {
 
         if ($table[15] !== "") {
             if ($table[15] === $table[3] && $table[11] === "" && $table[7] === "") {
