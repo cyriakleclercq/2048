@@ -31,7 +31,7 @@ h1 {
     align-items: center;
 }
 
-#bouton {
+#bouton, #restart {
     position: relative;
     left: 49%;
     top: 80px;

@@ -3,47 +3,36 @@
 
 $calc_ordi = 0;
 
-$table = [2,"","",4,"","",2,2,"","",2,"","","","",4];
+$table = ["","","","","","","","","","","","","","","",""];
 
 console.log($table);
+
+$('#restart').hide();
 
 // start the game
 
 $('#bouton').click(function () {
 
-    Start;
     AleaStart();
+    $('#bouton').hide();
+    $('#restart').show();
 
 });
 
-//AleaStart();
+$('#restart').click(function () {
 
-$(".nb0").text($table[0]);
-$(".nb1").text($table[1]);
-$(".nb2").text($table[2]);
-$(".nb3").text($table[3]);
-$(".nb4").text($table[4]);
-$(".nb5").text($table[5]);
-$(".nb6").text($table[6]);
-$(".nb7").text($table[7]);
-$(".nb8").text($table[8]);
-$(".nb9").text($table[9]);
-$(".nb10").text($table[10]);
-$(".nb11").text($table[11]);
-$(".nb12").text($table[12]);
-$(".nb13").text($table[13]);
-$(".nb14").text($table[14]);
-$(".nb15").text($table[15]);
+    Start();
+    this.hide();
+    $('#bouton').show();
+
+});
 
 // Clean the game
 
 function Start() {
 
-    for (let $i = 0; $i < 16; $i++) {
+    location.reload();
 
-        $(".nb"+ $i).text("");
-        $table[$i] = "";
-    }
 }
 
 // choice case random when game is started
@@ -713,7 +702,7 @@ if ($table[12] === $table[13] === $table[14] && $table[15] === "" ) {
 
 for (let $i = 0; $i < 16; $i ++) {
 
-    $(".nb" + $i).text($table[$i]);
+$(".nb" + $i).text($table[$i]);
 
 }
 
@@ -744,18 +733,18 @@ function MoveRight() {
         $table[1] = "";
     }
 
-    if ($table[0] === "" && $table[1] === "" && $table[3] === "") {
-        $table[0] = $table[2];
+    if ($table[3] === "" && $table[1] === "" && $table[0] === "") {
+        $table[3] = $table[2];
         $table[2] = "";
     }
 
     // mouvement de 2 blocs
 
-    if ($table[0] === "" && $table[2] === "" && $table[1] !== $table[3]) {
-        $table[0] = $table[1];
-        $table[2] = $table[3];
+    if ($table[3] === "" && $table[2] === "" && $table[1] !== $table[0]) {
+        $table[3] = $table[1];
+        $table[2] = $table[0];
         $table[1] = "";
-        $table[3] = "";
+        $table[0] = "";
     }
 
     if ($table[3] === "" && $table[2] !== $table[1] && $table[0] === "") {
@@ -764,7 +753,7 @@ function MoveRight() {
         $table[1] = "";
     }
 
-    if ($table[0] === "" && $table[2] !== $table[0] && $table[1] === "") {
+    if ($table[3] === "" && $table[2] !== $table[0] && $table[1] === "") {
         $table[3] = $table[2];
         $table[2] = $table[0];
         $table[0] = "";
@@ -818,8 +807,6 @@ function MoveRight() {
             $table[$i] += $table[$i-1];
             $table[$i-1] = "";
         }
-
-        // a modif a partir d'ici
 
         if ($table[3] === "") {
 
