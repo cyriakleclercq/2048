@@ -9,6 +9,8 @@ console.log($table);
 
 $('#restart').hide();
 
+$('#page2').hide();
+
 // start the game
 
 $('#bouton').click(function () {
@@ -22,8 +24,12 @@ $('#bouton').click(function () {
 $('#restart').click(function () {
 
     Start();
-    this.hide();
-    $('#bouton').show();
+
+});
+
+$('#restartP2').click(function () {
+
+    Start();
 
 });
 
@@ -33,6 +39,48 @@ function Start() {
 
     location.reload();
 
+}
+
+// end
+
+function finDuGame() {
+
+    for (let $i = 0; $i < $table.length; $i++) {
+
+        let $a = 0;
+
+        if ($table[$i] !== "") {
+            $a++
+        } else if ($table[$i] === "") {
+            $a--
+        }
+
+        let $b = 0;
+
+        if ($table[$i] === 2048) {
+
+            $b++;
+        }
+
+        if ($a === 16) {
+
+            $('#page1').hide();
+            $('#page2').show();
+
+            $('#resu').text("YOU LOSE")
+
+        }
+
+        if ($b !== 0) {
+
+            $('#page1').hide();
+            $('#page2').show();
+
+            $('#resu').text("YOU WIN")
+
+
+        }
+    }
 }
 
 // choice case random when game is started
@@ -58,7 +106,22 @@ function AleaStart() {
 
 }
 
-// move left
+function Alea() {
+
+
+    $calc_ordi = Math.floor(Math.random()*16);
+
+    if ($table[$calc_ordi] === "") {
+
+        $table[$calc_ordi] = 2;
+
+    }
+
+    if ($table[$calc_ordi] !== "") {
+
+        $calc_ordi = Math.floor(Math.random() * 16);
+    }
+}
 
 $(document).keydown(function(e){
 
@@ -85,33 +148,6 @@ $(document).keydown(function(e){
     }
 });
 
-$(document).keyup(function(e){
-
-    switch (e.which){
-
-        case 37: // fleche gauche
-
-            MoveLeft();
-            break;
-
-        case 38: // fleche haut
-
-            MoveTop();
-            break;
-
-        case 39: // fleche droite
-
-            MoveRight();
-            break;
-
-        case 40: // fleche bas
-
-            MoveBottom(); break;
-    }
-});
-
-
-// move left
 
 function MoveLeft() {
 
@@ -206,7 +242,7 @@ function MoveLeft() {
                 $table[0] += $table[2];
                 $table[2] = "";
             }
-        } else if ($table[$i] === $table[$i+1] && $table[$i+1] !== $table[$i+2]) {
+        } else if ($table[$i] === $table[$i+1] && $table[$i] !== $table[$i-1]  && $table[$i+1] !== $table[$i+2]) {
             $table[$i] += $table[$i+1];
             $table[$i+1] = "";
         }
@@ -230,7 +266,7 @@ function MoveLeft() {
                 $table[1] = "";
                 $table[3] = "";
             }
-        } else if ($table[$i] === $table[$i+1] && $table[$i+1] !== $table[$i+2]) {
+        } else if ($table[$i] === $table[$i+1] && $table[$i] !== $table[$i-1] && $table[$i+1] !== $table[$i+2]) {
             $table[$i] += $table[$i+1];
             $table[$i+1] = "";
         }
@@ -697,6 +733,10 @@ if ($table[12] === $table[13] === $table[14] && $table[15] === "" ) {
     $table[14] = "";
     $table[15] = "";
 }
+
+Alea();
+
+finDuGame();
 
 // réécrit le tableau dans les cases
 
@@ -1295,6 +1335,8 @@ function MoveRight() {
         $table[12] = "";
     }
 
+    finDuGame();
+    Alea();
 // réécrit le tableau dans les cases
 
     for (let $i = 0; $i < 16; $i ++) {
@@ -1892,6 +1934,8 @@ function MoveTop() {
         $table[15] = "";
     }
 
+    finDuGame();
+    Alea();
 // réécrit le tableau dans les cases
 
     for (let $i = 0; $i < 16; $i ++) {
@@ -2488,6 +2532,9 @@ function MoveBottom() {
         $table[7] = "";
         $table[3] = "";
     }
+
+    finDuGame();
+    Alea();
 
 // réécrit le tableau dans les cases
 

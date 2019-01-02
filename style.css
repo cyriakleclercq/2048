@@ -31,8 +31,27 @@ h1 {
     align-items: center;
 }
 
-#bouton, #restart {
+#bouton, #restart, #restartP2 {
     position: relative;
     left: 49%;
     top: 80px;
+}
+
+#corps2 {
+    position: relative;
+    top: 50px;
+    left: 34%;
+    width: 500px;
+    height: 500px;
+    border: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: green;
+}
+
+#resu {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 30px;
 }
