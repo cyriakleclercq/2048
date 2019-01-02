@@ -1,0 +1,38 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: slategrey;
+    text-align: center;
+
+}
+
+#corps {
+    position: relative;
+    top: 50px;
+    left: 34%;
+    width: 500px;
+    height: 500px;
+    border: solid;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.case {
+    width: 24.04%;
+    height: 24.04%;
+    border: solid;
+    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bouton {
+    position: relative;
+    left: 49%;
+    top: 80px;
+}
